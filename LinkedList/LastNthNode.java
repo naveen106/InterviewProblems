@@ -13,8 +13,10 @@ import java.util.Scanner;
 public class LastNthNode {
     static LinkedListNode<Integer>findLastNth(LinkedListNode<Integer> head, int n){
       LinkedListNode<Integer> pointer1 = head, pointer2 = head;
-      while(n!=0){
+      n--;
+      while(n!=0){  //it will be fine, if you remove previous n--, and the n-- inside the loop, just use while(--n != 0).
         pointer2 = pointer2.next;
+        //n--;
         n--;
       }
       while(pointer2.next != null){
@@ -32,9 +34,6 @@ public class LastNthNode {
     head = findLastNth(head, input.nextInt());
     input.close();
 
-    while(head != null){
-      System.out.print(head.data + " ");
-      head = head.next;
-    }
+    System.out.print(head.data);
   }
 }
